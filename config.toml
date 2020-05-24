@@ -1,5 +1,5 @@
-#baseURL = "https://raidancampbell.com/"
-baseURL = "http://localhost:1313"
+baseURL = "https://raidancampbell.com/"
+#baseURL = "http://localhost:1313"
 languageCode = "en-us"
 title = "raidancampbell"
 theme = "beautifulhugo"
