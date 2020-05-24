@@ -1,0 +1,21 @@
+@startuml
+entity "Event source" as event
+participant Rulechain
+participant Enrich
+database DB
+participant Filter as filter
+participant Forward as forward
+entity "Event sink" as sink
+
+event -> Rulechain : Incoming event
+Rulechain -> Rulechain : Create root\ncontext
+Rulechain -> Enrich : root ctx
+Enrich -> DB : root ctx and\ndeadline
+DB -> Enrich
+Enrich -> Rulechain
+Rulechain -> filter : root ctx
+filter -> Rulechain
+Rulechain -> forward : root ctx
+forward -> sink : root ctx and\ndeadline
+forward -> Rulechain
+@enduml

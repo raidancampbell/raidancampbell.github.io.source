@@ -1,0 +1,27 @@
+@startuml
+cloud {
+  rectangle "Event" as event
+}
+
+cloud {
+  rectangle "Elsewhere" as elsewhere
+}
+
+node "Go code" {
+  package "Chain of Responsibility" {
+    rectangle "Create Context with ID" as context
+    rectangle "Enrich event" as enrich
+    rectangle "Filter event" as filter
+    rectangle "Forward event" as forward
+  }
+}
+
+database "DB"
+
+event -right-> context
+context --> enrich : context has ID
+enrich -left-> DB : "context has ID and deadline              "
+enrich --> filter : context has ID and\nenriched metadata
+filter --> forward : context has ID and\nenriched metadata 
+forward -up-> elsewhere: context has ID and\nenriched metadata
+@enduml

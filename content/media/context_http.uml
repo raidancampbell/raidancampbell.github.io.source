@@ -1,0 +1,22 @@
+@startuml
+cloud {
+  rectangle "Network" as int
+}
+
+node "Go code" {
+  package "HTTP Listener" {
+    rectangle "Create Context with ID" as context
+    rectangle "process request" as process
+    package "Process" {
+      rectangle "query database" as query
+    }
+  }
+}
+
+database "DB"
+
+int -right-> context : " http://myHost:80           "
+context --> process : context has ID
+process --> query : context has ID
+query -left-> DB : "context has deadline and ID              "
+@enduml

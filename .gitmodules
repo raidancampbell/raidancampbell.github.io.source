@@ -1,0 +1,7 @@
+[submodule "themes/beautifulhugo"]
+	path = themes/beautifulhugo
+	url = https://github.com/halogenica/beautifulhugo.git
+[submodule "public"]
+	path = public
+	url = https://github.com/raidancampbell/raidancampbell.github.io.git
+	branch = master

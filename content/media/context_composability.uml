@@ -1,0 +1,10 @@
+@startuml
+package "deadlineCtx, cancelFunc := context.WithDeadline(valCtx, 1 * time.Second)" {
+  package "valCtx := context.WithValue(rootCtx, 'foo', 'bar')" {
+    package "rootCtx := context.Background()" {
+    }
+    rectangle "key 'foo', value 'bar'"
+  }
+  rectangle "deadline 1 second"
+}
+@enduml

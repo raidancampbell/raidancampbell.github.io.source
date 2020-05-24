@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="468px" preserveAspectRatio="none" style="width:562px;height:468px;" version="1.1" viewBox="0 0 562 468" width="562px" zoomAndPan="magnify"><defs><filter height="300%" id="f7uqdk362j117" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><path d="M30.1621,99.2295 C34.9514,92.0791 39.8557,93.852 44.2621,99.6466 C47.3992,93.4315 51.9875,93.2771 56.2424,98.4729 C59.1463,91.5235 63.4413,90.5965 68.3562,96.5909 C72.0784,90.4012 76.8792,90.4848 80.9871,96.181 C85.3834,91.1806 90.633,90.8028 93.3056,97.9316 C95.95,93.268 101.0266,92.9663 103.792,97.798 C108.5674,91.7945 112.9387,91.6016 116.5943,98.8776 C120.7829,93.1517 125.0608,94.6325 128.3788,99.8178 C136.5132,102.0002 138.3417,108.5892 131.5867,114.1129 C138.0335,116.8315 140.3208,121.1577 135.2484,127.1193 C140.4574,132.755 138.2595,136.6229 131.9171,139.027 C136.3949,143.6259 135.5297,150.077 128.8945,152.1079 C126.1574,158.6468 121.9763,158.8609 117.0084,154.5524 C113.82,160.2622 109.4749,160.8347 105.0231,155.9867 C103.397,162.3638 98.3033,163.8573 93.2673,159.8452 C90.5979,167.5216 84.6892,168.6532 79.5015,162.3196 C74.312,166.7806 69.9526,166.2847 68.0251,159.1039 C63.766,164.7896 58.7457,164.3964 56.1771,157.5107 C51.5251,162.1077 46.2358,162.9094 43.537,155.461 C37.5324,160.2885 33.3978,157.5895 31.5878,151.0512 C25.2465,148.1218 24.6147,143.4893 29.506,138.6711 C23.8741,134.4426 23.6935,130.3029 29.2524,125.853 C23.6267,122.6643 24.1584,116.5585 29.2421,113.361 C23.3625,109.125 22.9771,102.6149 30.1621,99.2295 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><!--MD5=[aa2b8c318e362b7052ffbdf71ed8d6f7]
+cluster Go code--><polygon fill="#FFFFFF" filter="url(#f7uqdk362j117)" points="274,34,284,24,540,24,540,446,530,456,274,456,274,34" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="530" x2="539" y1="34" y2="25"/><line style="stroke: #000000; stroke-width: 1.5;" x1="274" x2="530" y1="34" y2="34"/><line style="stroke: #000000; stroke-width: 1.5;" x1="530" x2="530" y1="34" y2="456"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="65" x="370.5" y="49.9951">Go code</text><!--MD5=[f98f21076769bc2123d3d0aaaf4c20d1]
+cluster HTTP Listener--><polygon fill="#FFFFFF" filter="url(#f7uqdk362j117)" points="298,72,418,72,425,94.2969,516,94.2969,516,432,298,432,298,72" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="298" x2="425" y1="94.2969" y2="94.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="114" x="302" y="86.9951">HTTP Listener</text><!--MD5=[91cb68fd87b3b72b9708791b96876208]
+cluster Process--><polygon fill="#FFFFFF" filter="url(#f7uqdk362j117)" points="324,321,393,321,400,343.2969,486,343.2969,486,408,324,408,324,321" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="324" x2="400" y1="343.2969" y2="343.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="328" y="335.9951">Process</text><!--MD5=[b1c884860531777bc081940d82065b2a]
+entity int--><rect fill="#FEFECE" filter="url(#f7uqdk362j117)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="81" x="38.5" y="107"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="48.5" y="129.9951">Network</text><!--MD5=[fd653a43105205fc53e935418e72fe3b]
+entity context--><rect fill="#FEFECE" filter="url(#f7uqdk362j117)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="186" x="314" y="107"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="166" x="324" y="129.9951">Create Context with ID</text><!--MD5=[4a7927ae3ced6d77a3101c23c0d824bc]
+entity process--><rect fill="#FEFECE" filter="url(#f7uqdk362j117)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="135" x="337.5" y="222"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="115" x="347.5" y="244.9951">process request</text><!--MD5=[a096c1983bcf686c95ea726f28f7a0ed]
+entity query--><rect fill="#FEFECE" filter="url(#f7uqdk362j117)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="130" x="340" y="356"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="110" x="350" y="378.9951">query database</text><!--MD5=[f9ba5bf973e7832d2ce5ed59077b93f7]
+entity DB--><path d="M27.5,361.5 C27.5,351.5 48,351.5 48,351.5 C48,351.5 68.5,351.5 68.5,361.5 L68.5,386.7969 C68.5,396.7969 48,396.7969 48,396.7969 C48,396.7969 27.5,396.7969 27.5,386.7969 L27.5,361.5 " fill="#FEFECE" filter="url(#f7uqdk362j117)" style="stroke: #000000; stroke-width: 1.5;"/><path d="M27.5,361.5 C27.5,371.5 48,371.5 48,371.5 C48,371.5 68.5,371.5 68.5,361.5 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="21" x="37.5" y="388.4951">DB</text><!--MD5=[96fb6c6d6ccbdec4ca03e6af1a184667]
+link int to context--><path d="M119.548,125 C166.395,125 245.139,125 308.377,125 " fill="none" id="int-&gt;context" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="313.673,125,304.673,121,308.673,125,304.673,129,313.673,125" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="110" x="141.75" y="118.0669">http://myHost:80</text><!--MD5=[8467d2f766b8cc79e2b929ce1274b802]
+link context to process--><path d="M406.696,143.162 C406.35,162.742 405.782,194.834 405.4,216.427 " fill="none" id="context-&gt;process" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="405.307,221.676,409.4658,212.7483,405.3956,216.6768,401.467,212.6066,405.307,221.676" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="93" x="407" y="188.0669">context has ID</text><!--MD5=[7bffa89ad8817811b85afcd9c43d1f62]
+link process to query--><path d="M405,258.257 C405,281.874 405,324.307 405,350.426 " fill="none" id="process-&gt;query" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="405,355.739,409,346.739,405,350.739,401,346.739,405,355.739" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="93" x="406" y="301.0669">context has ID</text><!--MD5=[5c25a1acdb6291bfb676993e2b32f388]
+reverse link DB to query--><path d="M73.8442,374 C129.111,374 260.221,374 339.895,374 " fill="none" id="DB&lt;-query" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="68.7369,374,77.7369,378,73.7369,374,77.7369,370,68.7369,374" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="179" x="86.75" y="367.0669">context has deadline and ID</text><!--MD5=[acc27af55947149436f5fd3f227288e7]
+@startuml
+cloud {
+  rectangle "Network" as int
+}
+
+node "Go code" {
+  package "HTTP Listener" {
+    rectangle "Create Context with ID" as context
+    rectangle "process request" as process
+    package "Process" {
+      rectangle "query database" as query
+    }
+  }
+}
+
+database "DB"
+
+int -right-> context : " http://myHost:80           "
+context - -> process : context has ID
+process - -> query : context has ID
+query -left-> DB : "context has deadline and ID              "
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 09:48:49 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

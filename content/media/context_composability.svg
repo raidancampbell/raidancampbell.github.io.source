@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="193px" preserveAspectRatio="none" style="width:780px;height:193px;" version="1.1" viewBox="0 0 780 193" width="780px" zoomAndPan="magnify"><defs><filter height="300%" id="f1xa0ur2nj8mja" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[41614406397869bc911374cca681d4f5]
+cluster deadlineCtx, cancelFunc := context.WithDeadline(valCtx, 1 * time.Second)--><polygon fill="#FFFFFF" filter="url(#f1xa0ur2nj8mja)" points="22,24,626,24,633,46.2969,758,46.2969,758,181,22,181,22,24" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="633" y1="46.2969" y2="46.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="598" x="26" y="38.9951">deadlineCtx, cancelFunc := context.WithDeadline(valCtx, 1 * time.Second)</text><!--MD5=[032e89da9c85c4220f1fbeef845651d3]
+cluster valCtx := context.WithValue(rootCtx, 'foo', 'bar')--><polygon fill="#FFFFFF" filter="url(#f1xa0ur2nj8mja)" points="207,67,607,67,614,89.2969,734,89.2969,734,157,207,157,207,67" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="207" x2="614" y1="89.2969" y2="89.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="394" x="211" y="81.9951">valCtx := context.WithValue(rootCtx, 'foo', 'bar')</text><!--MD5=[4671dacd80bb76def620a9eb0615e1b4]
+entity deadline 1 second--><rect fill="#FEFECE" filter="url(#f1xa0ur2nj8mja)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="149" x="38.5" y="103.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="129" x="48.5" y="126.4951">deadline 1 second</text><!--MD5=[9b36faf417bc7b9220f5700f1cb24f94]
+entity key 'foo', value 'bar'--><rect fill="#FEFECE" filter="url(#f1xa0ur2nj8mja)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="163" x="554.5" y="103.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="143" x="564.5" y="126.4951">key 'foo', value 'bar'</text><!--MD5=[e2204e9a6af7f5ebd3bbe136e780b204]
+entity rootCtx := context.Background()--><polygon fill="#FFFFFF" filter="url(#f1xa0ur2nj8mja)" points="223,102,495,102,502,124.2969,519,124.2969,519,141.2969,223,141.2969,223,102" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="223" x2="502" y1="124.2969" y2="124.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="266" x="227" y="117.9951">rootCtx := context.Background()</text><!--MD5=[38f69536522808bf11b89dccffd28070]
+@startuml
+package "deadlineCtx, cancelFunc := context.WithDeadline(valCtx, 1 * time.Second)" {
+  package "valCtx := context.WithValue(rootCtx, 'foo', 'bar')" {
+    package "rootCtx := context.Background()" {
+    }
+    rectangle "key 'foo', value 'bar'"
+  }
+  rectangle "deadline 1 second"
+}
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 09:48:49 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,21 @@
+#baseURL = "https://raidancampbell.com/"
+baseURL = "http://localhost:1313"
+languageCode = "en-us"
+title = "raidancampbell"
+theme = "beautifulhugo"
+
+googleAnalytics = "UA-62271915-1"
+
+[Params]
+  dateFormat = "2006-01-02"
+  hideAuthor = true
+  subtitle = "Code monkey. IRC advocate. Casual zymurgist."
+#  readingTime = true
+#  wordCount = true
+
+[Author]
+  name = "R. Aidan Campbell"
+  website = "raidancampbell.com"
+  github = "raidancampbell"
+  twitter = "@raidancampbell"
+  linkedin = "r-aidan-campbell-73436a31"
