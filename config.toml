@@ -10,8 +10,8 @@ googleAnalytics = "UA-62271915-1"
   dateFormat = "2006-01-02"
   hideAuthor = true
   subtitle = "Code monkey. IRC advocate. Casual zymurgist."
-#  readingTime = true
-#  wordCount = true
+  readingTime = true
+  wordCount = true
 
 [Author]
   name = "R. Aidan Campbell"
@@ -19,3 +19,8 @@ googleAnalytics = "UA-62271915-1"
   github = "raidancampbell"
   twitter = "@raidancampbell"
   linkedin = "r-aidan-campbell-73436a31"
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
