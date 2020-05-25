@@ -8,14 +8,4 @@ deploy:
 	hugo -t beautifulhugo
 
 	# Go To Public folder
-	cd public
-
-	# Add changes to git.
-	git add .
-
-	# Commit changes.
-	msg="rebuilding site $(date)"
-	git commit -m "$msg"
-
-	# Push source and build repos.
-	git push origin master
+	cd public && git add . && git commit -m "rebuilding site $(date)" && git push origin master
