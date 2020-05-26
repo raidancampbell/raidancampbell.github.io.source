@@ -1,7 +1,7 @@
 ---
 title: "Abusing Context in Go Part I: Serialization"
-date: 2020-05-23T21:29:46-07:00
-draft: true
+date: 2020-05-25T10:29:46-07:00
+draft: false
 ---
 
 At the extreme end of microservice architecture, network communication becomes the substitution for function calls.
