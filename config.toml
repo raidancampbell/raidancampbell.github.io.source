@@ -11,7 +11,6 @@ disqusShortname = "raidancampbell"
   dateFormat = "2006-01-02"
   hideAuthor = true
   subtitle = "Code monkey. IRC advocate. Casual zymurgist."
-  delayDisqus = true
 #  readingTime = true
 #  wordCount = true
 
