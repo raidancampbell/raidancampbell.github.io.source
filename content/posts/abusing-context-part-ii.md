@@ -1,12 +1,13 @@
 ---
 title: "Abusing Context Part II: Recovery"
-date: 2020-05-25T17:31:47-07:00
+date: 2020-06-04T16:31:47-07:00
 draft: true
 ---
 
 While not required, it's highly recommended that you read Dave Cheney's post on [Dynamically Scoped Variables][dynamically scoped variables] before continuing. 
 
-#### The reasoning behind context recovery 
+## What and Why? 
+---
 Consider an instance of [`context.Context`][go context package] as it flows through the code. 
 Typically it's created at the beginning of a transaction and enriched or referenced throughout the transaction. 
 Sometimes it's not passed everywhere -- it certainly doesn't need to be.
@@ -54,21 +55,25 @@ must change to
 key := keyserverClient.GetKey(context.TODO(), keyID) // retrieve the key from the keyserver
 ```
 and now we have no context to provide. 
-In a perfect world, we'd refactor the codebase and change all the intermediate function signatures to add context support.
-But I'm lazy and wanted a different (and also not kosher for production!) approach.
+In a perfect world, we'd refactor the `AESEncrypt` to change the function signature to add context support.
+But I'm lazy and want a different approach.
 
 We had the context further up the callstack, but it was omitted at some point in the stack.  We want it back now.
 
-#### The tools
+## How?
 
-To begin this journey, let's note some of the restrictions placed on `contex.Context`
- - A context SHOULD be the first parameter in the function signature.  `go lint` linter `lintContextArgs` [checks for this][lint context args]
+---
+### The Limitations
+
+To begin this journey, let's note some of the restrictions placed on `contex.Context`. 
+Each restriction limits the work we have to do: narrower scope means less scenarios to handle.
+ - A context SHOULD be the first parameter in the function signature. The `go lint` linter `lintContextArgs` [checks for this][lint context args]
  - Context is an interface which contains four unexported implementations under the hood: [deadline][timer ctx], [cancel][cancel ctx], [value][value ctx], and [empty][empty ctx].
 
 So we always know where a context will be in a function signature and also the legal values of its underlying concrete type.
-At this point, it's time to digress into some go internals: the `interface`.
+The next tools for solving the problem come from understanding the internals of go.  Specifically, the `interface`
 
-Interfaces in go are constructed by two parts, an `itab` and the data.
+Interfaces, such as the `context.Context` interface, are constructed by two parts: an `itab` and the data.
 The `runtime2.go` [source][interface source] has it defined simply as:
 ```go
 type iface struct {
@@ -82,7 +87,7 @@ For the time being, we need to know two things:
 - The `itab` and `data` pointers make up an interface
 - Different instances of the same concrete interface implementation will recycle the same `itab`
 
-#### How are interfaces passed at runtime
+### Interfaces at Runtime
 At runtime, interfaces aren't passed as the single `iface` struct we saw defined in `runtime2.go`. 
 Instead, they're passed as the contents: the `itab`, `data` tuple. 
 We can demonstrate this with the below trivial example: a 2 frame stack, where the caller places a single interface as a parameter to the callee. 
@@ -108,13 +113,13 @@ main.panicker(0x1099b60, 0xc000068060)
 main.main()
         /Users/aidan/go/src/github.com/raidancampbell.github.io.source/content/scratch/abusing-context-part-ii.go:6 +0x7a
 ```
-The bottom of the stack (using the "stack grows downwards" terminology) has the two values in question: `main.panicker(0x1099b60, 0xc000068060)`. 
+The bottom of the stack (using the "stack grows downwards" terminology, whereas the stacktrace shows current execution at the top) has the two values in question: `main.panicker(0x1099b60, 0xc000068060)`. 
 While only one was actually passed to the function, two appeared in the call stack. 
 Why? I'm not sure why Go does it this way. 
 My guess is that the majority of the `itab` is constructed at compile (linking) time, and is required for the way interfaces are treated in go.
 This theory is reinforced by the memory address offset: the `itab` appears much earlier in memory compared to the data.
 
-#### Rebuilding an interface
+### Rebuilding an interface
 Let's modify the above example to gain access to the stack as a string:
 ```go
 package main
@@ -217,7 +222,8 @@ Extracting the string hex addresses into actual `uintptr`.  In the above executi
 ```go
 idata := [2]uintptr{p1, p2}
 ```
-This is placing two pointers in the same layout as the `iface` struct: `itab` pointer first, data pointer second
+This is placing two pointers in the same layout as the `iface` struct: `itab` pointer first, data pointer second.
+Remember that the internal struct for an interface looks like this:
 ```go
 type iface struct {
 	tab  *itab
@@ -235,18 +241,14 @@ How would we handle true context recovery if it existed somewhere up the stack, 
 The above code has a major fatal flaw: it finds the first function up the stack with two parameters, and blindly jams them into a `context.Context`. 
 In reality we don't know if the first two parameters are the `itab` and data pointers: they may be ints, or even an `itab` and data pointer for an unrelated interface.
 
-Here we call upon our initial restrictions: `context.Context` should always be first, and we know the 4 possible implementations of context. 
-Knowing that there's 4 possible implementations allows us to enumerate the legal itab pointers on invocation:
+Here we call upon our initial restrictions: `context.Context` should always be first, and we know the four possible implementations of context. 
+Knowing that there's four possible implementations allows us to enumerate the legal itab pointers on invocation:
 ```go
 func RecoverCtx() (context.Context, error) {
 	return emptyItab(context.Background())
 }
 
 //go:noinline
-// type descriptors addresses are seemingly constant for a given goroutine
-// We leverage this to identify parameter addresses that are a context.Context
-// Specifically, we must build up each of the concrete context.Context implementations
-// so that we have the full legal set of context descriptors.
 func emptyItab(_ context.Context) (context.Context, error) {
 	return valueItab(context.WithValue(context.Background(), "", ""))
 }
@@ -289,8 +291,7 @@ libraidan/pkg/runsafe.valueItab(0x14b5d20, 0xc00009d320, 0x0, 0x0, 0x0, 0x0)
 libraidan/pkg/runsafe.emptyItab(0x14b5ca0, 0xc0000a6008, 0x0, 0x0, 0x0, 0x0)
 	/Users/aidan/go/src/libraidan/pkg/runsafe/context.go:33 +0xd7
 libraidan/pkg/runsafe.RecoverCtx(0x0, 0x0, 0x0, 0x0)
-```
-Note that the `runtime.Stack` call prints in a reverse order from `panic` calls. 
+``` 
 Using this stack, we can build guarantees: 
 - we know how many functions live above our call to `runtime.Stack`
 - we know the name of each of these functions
@@ -321,8 +322,11 @@ func doGetCtx() (context.Context, error) {
 	n := runtime.Stack(buf[:], false) // get the current callstack as a string
 	sc := bufio.NewScanner(bytes.NewReader(buf[:n]))
 	var (
-		deadlineType, cancelType, valueType, emptyType uintptr // hold the type descriptor pointers for each of the context implementations
-		stackMatch                                     int     // used to count our way up the stack, as the stack is constant the lowest few levels and we need to leverage that
+        // hold the type itab pointers for each of the context implementations
+		deadlineType, cancelType, valueType, emptyType uintptr 
+         // used to count our way up the stack, 
+         // as the stack is constant the lowest few levels and we need to leverage that
+		stackMatch int    
 	)
 	for sc.Scan() { // for each line (walking up the stack from here)
 		// if the line doesn't match, skip.
@@ -357,7 +361,8 @@ func doGetCtx() (context.Context, error) {
 		} else if stackMatch == 4 && strings.Contains(sc.Text(), "emptyItab") {
 			emptyType = p1
 		} else if p1 != emptyType && p1 != valueType && p1 != cancelType && p1 != deadlineType {
-			// if we're in the caller's code, and the first parameter isn't a known context implementation, then skip this stack frame
+			// if we're in the caller's code, and the first parameter isn't a 
+			// known context implementation, then skip this stack frame
 			continue
 		}
 
@@ -365,8 +370,8 @@ func doGetCtx() (context.Context, error) {
 			continue
 		}
 
-		// at this point we're done building the legal context implementations, and this matched one.
-		// rebuild a context from the addresses, and return
+		// at this point we're done building the legal context implementations, 
+		// and this matched one. rebuild a context from the addresses, and return
 		idata := [2]uintptr{p1, p2}
 		return *(*context.Context)(unsafe.Pointer(&idata)), nil
 	}
