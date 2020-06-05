@@ -1,6 +1,6 @@
-# raidancampbell.com sources
+# [raidancampbell.com] sources
 
-This repository holds the source code for generating raidancampbell.com. 
+This repository holds the source code for generating [raidancampbell.com][raidancampbell.com]. 
 Human-made things live in the [`content` directory][content dir]: 
 [media][media dir] contains any images and applicable sources, 
 [posts][posts dir] contains the blog posts themselves, and
@@ -13,7 +13,7 @@ The Makefile handles updating the actual site: the github.io repo is a submodule
 Executing `make` will regenerate the static site with `hugo` and commit and push the submodule changes.
 
 
-
+[raidancampbell.com]:[raidancampbell.com]
 [content dir]:https://github.com/raidancampbell/raidancampbell.github.io.source/tree/master/content
 [media dir]:https://github.com/raidancampbell/raidancampbell.github.io.source/tree/master/content/media
 [posts dir]:https://github.com/raidancampbell/raidancampbell.github.io.source/tree/master/content/posts
