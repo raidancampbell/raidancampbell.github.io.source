@@ -1,7 +1,7 @@
 ---
 title: "Abusing Context Part II: Recovery"
 date: 2020-06-04T16:31:47-07:00
-draft: true
+draft: false
 ---
 
 While not required, it's highly recommended that you read Dave Cheney's post on [Dynamically Scoped Variables][dynamically scoped variables] before continuing. 
