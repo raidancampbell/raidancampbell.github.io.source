@@ -2,6 +2,7 @@
 title: "Design Considerations for Context in Go"
 date: 2020-05-22T14:58:47-07:00
 draft: false
+summary: An overview on design paradigms for golang's context library
 ---
 
 ## A brief introduction to Context

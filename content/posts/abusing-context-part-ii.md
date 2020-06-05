@@ -1,12 +1,14 @@
 ---
-title: "Abusing Context Part II: Recovery"
+title: "Abusing Context in Go Part II: Recovery"
 date: 2020-06-04T16:31:47-07:00
 draft: false
+summary: A method for recovering context in Go that was omitted somewhere up the callstack
 ---
 
 While not required, it's highly recommended that you read Dave Cheney's post on [Dynamically Scoped Variables][dynamically scoped variables] before continuing. 
 
 ## What and Why? 
+
 ---
 Consider an instance of [`context.Context`][go context package] as it flows through the code. 
 Typically it's created at the beginning of a transaction and enriched or referenced throughout the transaction. 

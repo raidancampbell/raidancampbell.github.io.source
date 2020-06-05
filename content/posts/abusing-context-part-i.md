@@ -2,6 +2,7 @@
 title: "Abusing Context in Go Part I: Serialization"
 date: 2020-05-25T10:29:46-07:00
 draft: false
+summary: A method for serializing context to allow it to flow between networked hosts
 ---
 
 At the extreme end of microservice architecture, network communication becomes the substitution for function calls.
