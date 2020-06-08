@@ -2,6 +2,7 @@
 title: "Low Effort Blog Posts Part I: DNS Sinkholing"
 date: 2020-06-07T21:58:09-07:00
 draft: false
+summary: Keep your sensitive data flowing on trusted (controlled) networks, but sinkhole them outside
 ---
 
 # What
