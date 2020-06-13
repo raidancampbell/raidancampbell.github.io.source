@@ -1,7 +1,7 @@
 ---
 title: "narp"
 date: 2020-06-07T08:11:47-07:00
-draft: true
+draft: false
 summary: A novel network attack preventing new clients from acquiring an IP address
 center: the code just checks for the presence of this flag
 ---
