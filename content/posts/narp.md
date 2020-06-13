@@ -3,6 +3,7 @@ title: "narp"
 date: 2020-06-07T08:11:47-07:00
 draft: true
 summary: A novel network attack preventing new clients from acquiring an IP address
+center: the code just checks for the presence of this flag
 ---
 Address Resolution Protocol, detailed in [RFC 826][RFC 826], provides a simple marriage between the [link layer][link layer] and the [network layer][network layer]. 
 For a given subnet, any host can broadcast an ARP request for another host on the same subnet. 
@@ -14,7 +15,7 @@ When a host first wishes to use an IP address on a given network, RFC 5227 compl
 After a timeout period, the host considers the IP address unused, and is free to claim it.
 
 During this timeout window, an attacker has the opportunity to maliciously answer the probe with a forged ARP reply. 
-An implementation of this is available [here][narp] for educational use only
+An implementation of this is available [here][narp] for educational use only.
 
 
 [RFC 826]:https://tools.ietf.org/html/rfc826

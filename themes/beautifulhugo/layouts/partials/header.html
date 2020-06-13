@@ -6,6 +6,7 @@
   {{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
 {{ else }}
   {{ $.Scratch.Set "title" .Title }}
+  {{ if .Params.center }}{{ $.Scratch.Set "shouldCenter" .Params.shouldCenter }}{{ end }}
   {{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
   {{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
 {{ end }}
@@ -57,7 +58,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="{{ .Type }}-heading">
+            <div class="{{ .Type }}-heading" {{ if .Params.center }}style="text-align: center;"{{end}}>
               {{ if eq .Type "list" }}
                 <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
               {{ else }}
