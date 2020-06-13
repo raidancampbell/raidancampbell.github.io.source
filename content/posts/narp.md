@@ -1,6 +1,6 @@
 ---
 title: "narp"
-date: 2020-06-07T08:11:47-07:00
+date: 2020-06-13T08:11:47-07:00
 draft: false
 summary: A novel network attack preventing new clients from acquiring an IP address
 center: the code just checks for the presence of this flag
@@ -15,6 +15,8 @@ When a host first wishes to use an IP address on a given network, RFC 5227 compl
 After a timeout period, the host considers the IP address unused, and is free to claim it.
 
 During this timeout window, an attacker has the opportunity to maliciously answer the probe with a forged ARP reply. 
+In practice, the attack looks like this:
+{{< figure src="/media/narp_diagram.svg" >}}
 An implementation of this is available [here][narp] for educational use only.
 
 

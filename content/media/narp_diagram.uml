@@ -1,0 +1,22 @@
+@startuml
+actor "Attacker,\nF0:00:F0:00:F0:00,\n192.168.0.5" as attacker
+actor "Victim,\nDE:AD:BE:EF:CA:FE\n" as victim
+participant "DHCP Server" as server
+
+victim -> server : I just joined the network,\nplease give me (DE:AD:BE:EF:CA:FE)\nan IP address
+server -> victim : Okay, you can have 192.168.0.10
+
+rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.10?\nTell me, DE:AD:BE:EF:CA:FE
+rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.10
+
+note right of victim #white: This usually repeats 3\ntimes, but is left as an\nimplementation to the OS
+rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.10?\nTell me, DE:AD:BE:EF:CA:FE
+rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.10
+
+rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.10?\nTell me, DE:AD:BE:EF:CA:FE
+rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.10
+
+note right of victim #white: Victim chooses a different IP\n and the process repeats
+rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.11?\nTell me, DE:AD:BE:EF:CA:FE
+rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.11
+@enduml
