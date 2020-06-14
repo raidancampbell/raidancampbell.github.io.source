@@ -9,7 +9,7 @@ server -> victim : Okay, you can have 192.168.0.10
 rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.10?\nTell me, DE:AD:BE:EF:CA:FE
 rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.10
 
-note right of victim #white: This usually repeats 3\ntimes, but is left as an\nimplementation to the OS
+note right of victim #white: This usually repeats 2 more\ntimes, but is left as an\nimplementation to the OS
 rnote over victim : ARP probe broadcast:\nIs anyone using 192.168.0.10?\nTell me, DE:AD:BE:EF:CA:FE
 rnote over attacker : ARP reply broadcast:\nI (F0:00:F0:00:F0:00)\nown 192.168.0.10
 
