@@ -12,6 +12,7 @@ googleAnalytics = "UA-62271915-1"
   hideAuthor = true
   subtitle = "Code monkey. IRC advocate. Casual zymurgist."
   readingTime = true
+  selfHosted = true
 #  wordCount = true
 
 [Author]
