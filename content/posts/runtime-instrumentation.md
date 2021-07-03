@@ -55,10 +55,9 @@ Again, the point of this test function is just "run `main()`, and gracefully sto
 A sample to support SIGINT alongside a timeout looks like this:
 ```go
 func Test_main(t *testing.T) {
-	go main()
-	time.Sleep(10 * time.Second)
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt)
+    go main()
+    c := make(chan os.Signal, 1)
+    signal.Notify(c, os.Interrupt)
     select {
         case <- c:
             return
@@ -88,10 +87,9 @@ import (
 )
 
 func Test_main(t *testing.T) {
-	go main()
-	time.Sleep(10 * time.Second)
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt)
+    go main()
+    c := make(chan os.Signal, 1)
+    signal.Notify(c, os.Interrupt)
     select {
         case <- c:
             return
